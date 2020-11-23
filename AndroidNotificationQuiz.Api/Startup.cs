@@ -105,7 +105,7 @@ namespace AndroidNotificationQuiz.Api
             app.UseCors("MyCorsPolicy");
             
             app.UseSwagger();
-            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "YTTEAM API v1.0"); });
+            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", ""); });
 
             app.UseMvc();
         }

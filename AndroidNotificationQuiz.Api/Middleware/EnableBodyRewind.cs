@@ -22,7 +22,7 @@ namespace AndroidNotificationQuiz.Api.Middleware
 
             bool key_header_is_absent = !h.ContainsKey(headerKey)
                 || string.IsNullOrEmpty(h[headerKey])
-                || !h[headerKey].Equals("ZqUABG3HVLUWRGeGM5MHGXeSwcJzld");
+                || !h[headerKey].Equals("<X-Secret>");
             
             //key_header_is_absent = false;
 

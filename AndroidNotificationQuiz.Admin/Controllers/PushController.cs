@@ -93,9 +93,9 @@ namespace AndroidNotificationQuiz.Admin.Controllers
 
             using (var client = new HttpClient { Timeout = TimeSpan.FromSeconds(30) })
             {
-                client.DefaultRequestHeaders.Add("X-API-Token", "6b72c77917e9560e493a6421cf36919e036d3fc9");
+                client.DefaultRequestHeaders.Add("X-API-Token", "<X-API-Token>");
 
-                var builder = new UriBuilder(new Uri("https://appcenter.ms/api/v0.1/apps/ytteamapp/Notifications-android/push/notifications"));
+                var builder = new UriBuilder(new Uri("https://appcenter.ms/api/v0.1/apps/***app/Notifications-android/push/notifications"));
 
                 HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, builder.Uri)
                 {

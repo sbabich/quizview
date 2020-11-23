@@ -22,25 +22,6 @@ namespace AndroidNotificationQuiz.Api.Middleware
         {
             //First, get the incoming request
             var request = await FormatRequest(context.Request);
-                      
-
-            /*const string headerKey = "X-Secret";
-            var h = context.Request.Headers;
-
-            bool is_need_a_check = context.Request.Path.Value.StartsWith("/time");
-            bool is_not_a_header = !h.ContainsKey(headerKey)
-                || string.IsNullOrEmpty(h[headerKey])
-                || !h[headerKey].Equals("yyiBT5U5MG5xw9hHbtNteM");
-
-            if (is_need_a_check && is_not_a_header)
-            {
-                var output = "";
-                context.Response.ContentType = "application/json";
-                context.Response.StatusCode = 403;
-                await context.Response.WriteAsync(output);
-
-                return;
-            }*/
 
             //Copy a pointer to the original response body stream
             var originalBodyStream = context.Response.Body;
