@@ -1,0 +1,98 @@
+﻿@using AndroidNotificationQuiz.Admin.ViewModels
+@model IndexViewPageModel<OrderModel>
+@{
+    ViewBag.Title = "Заказанные товары";
+}
+
+<a class="btn btn-success" asp-action="ViewAuto" asp-controller="Order">Товары с автовыдачей</a>
+
+<p>
+    <h2>Список заказанных товаров</h2>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Cost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.FirstOrDefault().CategoryTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.FirstOrDefault().UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Social)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Social)
+                </td>
+                <td>
+                    <a asp-action="ReturnScore" asp-controller="Shop" asp-route-id="@item.Id">Вернуть баллы</a>
+                </td>
+                <td>
+                    <a asp-action="Completed" asp-controller="Shop" asp-route-id="@item.Id">Пометить как выполненное</a>
+                </td>
+            </tr>
+            @if (!string.IsNullOrEmpty(item.PromoCode))
+            {
+                <tr>
+                    <td colspan="2" style="border-top: 0px;">
+                        @Html.DisplayNameFor(model => model.Items.FirstOrDefault().PromoCode)
+                    </td>
+                    <td colspan="6" style="border-top: 0px;font-weight: 700;">
+                        @Html.DisplayFor(modelItem => item.PromoCode)
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.PageViewModel.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.PageViewModel.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-pageIndex="@(Model.PageViewModel.PageNumber - 1)"
+   asp-route-id="@Model.SerachString"
+   class="btn btn-default @prevDisabled">
+    Назад
+</a>
+<a asp-action="Index"
+   asp-route-pageIndex="@(Model.PageViewModel.PageNumber + 1)"
+   asp-route-id="@Model.SerachString"
+   class="btn btn-default @nextDisabled">
+    Вперед
+</a>

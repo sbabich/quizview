@@ -1,0 +1,52 @@
+@model List<AndroidNotificationQuiz.Admin.ViewModels.CreatePromoCategoryModel>
+@{
+    ViewBag.Title = "Список категорий кодов активации";
+}
+
+<a class="btn btn-success" asp-action="CreatePromoCategory" asp-controller="Shop">Создать категорию</a>
+
+<p>
+    <h2>Список категорий кодов активации</h2>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => Model.FirstOrDefault().Id)
+            </th>
+            <th width="50%">
+                @Html.DisplayNameFor(model => Model.FirstOrDefault().Name)
+            </th>
+            <th></th>
+            <th></th>
+            <th width="20px"></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <th>
+                @Html.DisplayFor(modelItem => item.Name)
+            </th>
+            <td>
+                <a asp-action="EditPromoItems" class="btn btn-info" asp-controller="Shop" asp-route-id="@item.Id">Промокоды</a>
+            </td>
+            <td>
+                <a asp-action="EditPromoCategory" class="btn btn-info" asp-controller="Shop" asp-route-id="@item.Id">Редактировать</a>
+            </td>
+            <td></td>
+            <td>
+                <a asp-action="RemovePromoCategory" class="btn btn-danger" asp-controller="Shop" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+

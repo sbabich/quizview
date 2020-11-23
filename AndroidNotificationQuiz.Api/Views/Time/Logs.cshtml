@@ -1,0 +1,25 @@
+﻿@model AndroidNotificationQuiz.Api.ViewModels.LogViewModel
+@{
+    ViewData["Title"] = "Logs";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <div>
+            @foreach (var t in Model.Text)
+            {
+                @t <br/><br />
+            }
+            </div>
+        </main>
+    </div>
+</body>
+</html>

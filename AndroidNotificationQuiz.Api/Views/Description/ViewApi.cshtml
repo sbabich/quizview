@@ -1,0 +1,33 @@
+﻿<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@3.17.0/swagger-ui.css">
+    <script src="//unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
+    <script>
+
+            function render() {
+                var ui = SwaggerUIBundle({
+                    url:  `/swagger/v1/swagger.json`,
+                    dom_id: '#swagger-ui',
+                    presets: [
+                        SwaggerUIBundle.presets.apis,
+                        SwaggerUIBundle.SwaggerUIStandalonePreset
+                    ]
+                });
+            }
+
+    </script>
+    <style>
+        .swagger-ui .opblock .opblock-summary-description {
+            font-size: 15px;
+            FONT-WEIGHT: 300;
+            -ms-flex: 1;
+            flex: 1;
+            color: #3b4151;
+        }
+    </style>
+</head>
+
+<body onload="render()">
+    <div id="swagger-ui"></div>
+</body>
+</html>

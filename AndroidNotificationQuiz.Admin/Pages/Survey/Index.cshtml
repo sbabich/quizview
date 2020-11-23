@@ -1,0 +1,72 @@
+﻿@model List<AndroidNotificationQuiz.Admin.ViewModels.SurveyModel>
+@{
+    ViewBag.Title = "Лист опросов";
+}
+
+
+<a class="btn btn-primary" asp-action="Create" asp-controller="Survey">Создать опрос</a>
+<p>
+    <h2>Список опросов</h2>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().IsActive)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                </td>
+                <td>
+                    @Html.CheckBoxFor(modelItem => item.IsActive, new
+                    {
+                        onclick = "UpdateSurvey(this)",
+                        data_surveyid = item.Id
+                    })
+
+                </td>
+                <td>
+                    <a class="btn btn-info" asp-action="Edit" asp-controller="Survey" asp-route-surveyid="@item.Id">Редактировать</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script type="text/javascript">
+    function UpdateSurvey(elem) {
+    var isDone = $(elem).is(':checked');
+    var cid = $(elem).data('surveyid');
+    $.ajax({
+        type: 'POST',
+        url: '@Url.Action("ChangeSurveyState", "Survey")',
+        data: { check: isDone, surveyid:cid },
+        success: function(res) {
+        console.log(res);
+        }
+        });
+        }
+</script>

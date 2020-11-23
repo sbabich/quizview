@@ -1,0 +1,48 @@
+@model List<AndroidNotificationQuiz.Admin.ViewModels.CreateCategoryModel>
+@{
+    ViewBag.Title = "Лист категорий";
+}
+
+<a class="btn btn-success" asp-action="CreateCategory" asp-controller="Shop">Создать категорию</a>
+
+<p>
+    <h2>Список товаров</h2>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => Model.FirstOrDefault().Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => Model.FirstOrDefault().Position)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => Model.FirstOrDefault().Sort)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Position)
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sort)
+                </td>
+                <td>
+                    <a asp-action="EditCategory" class="btn btn-info" asp-controller="Shop" asp-route-id="@item.Id">Редактировать</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

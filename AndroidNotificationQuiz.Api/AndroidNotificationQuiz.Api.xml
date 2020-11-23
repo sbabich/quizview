@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AndroidNotificationQuiz.Api</name>
+    </assembly>
+    <members>
+        <member name="M:AndroidNotificationQuiz.Api.Controllers.ProfileController.SetNick(AndroidNotificationQuiz.Api.Dto.Profile.ChangeNickRequest)">
+            <summary>
+            Установка ника для авторизованного пользователя
+            </summary>
+            <param name="nickRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AndroidNotificationQuiz.Api.Controllers.ProfileController.GetProfile(System.Int32)">
+            <summary>
+            Получение информации о пользователе по его ID
+            </summary>
+            <param name="id">ID профиля пользователя</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

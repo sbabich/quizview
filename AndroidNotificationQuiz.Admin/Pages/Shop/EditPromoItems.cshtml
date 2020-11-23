@@ -1,0 +1,60 @@
+@model AndroidNotificationQuiz.Admin.ViewModels.IndexPromoItemModel
+@{
+    ViewBag.Title = $"Список промокодов {Model.PromoCategoryName}";
+}
+
+<a class="btn btn-success" asp-action="AddPromoItems" asp-controller="Shop" asp-route-id="@Model.PromoCategoryId">Добавить промокоды</a>
+
+<p>
+    <h2>Список промокодов</h2>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => Model.PromoItems.FirstOrDefault().Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => Model.PromoItems.FirstOrDefault().Code)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.PromoItems)
+        {
+            var style = item.IsUsed > 0 ? "color: silver;" : "";
+        <tr style="@style">
+            <td width="10%">
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <th width="90%">
+                @Html.DisplayFor(modelItem => item.Code)
+            </th>
+            <td>
+                <a asp-action="RemovePromoItem" class="btn btn-danger" asp-controller="Shop" asp-route-id="@item.Id" asp-route-pageIndex="@Model.PageViewModel.PageNumber">Удалить</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+@{
+    var prevDisabled = !Model.PageViewModel.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.PageViewModel.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="GoodIndex"
+    asp-route-id="@(Model.PromoCategoryId)"
+    asp-route-pageIndex="@(Model.PageViewModel.PageNumber - 1)"
+    class="btn btn-default @prevDisabled">
+    Назад
+</a>
+<a asp-action="GoodIndex"
+    asp-route-id="@(Model.PromoCategoryId)"
+    asp-route-pageIndex="@(Model.PageViewModel.PageNumber + 1)"
+    class="btn btn-default @nextDisabled">
+    Вперед
+</a>
+
+

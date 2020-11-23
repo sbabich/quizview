@@ -1,0 +1,47 @@
+﻿@model AndroidNotificationQuiz.Admin.ViewModels.UserScoreModel
+@{
+    ViewBag.Title = "Снять или начислить баллы";
+}
+
+<h2>Изменить баллы:</h2>
+
+<form asp-action="EditScore" asp-controller="User" asp-anti-forgery="true">
+    <div class="validation" asp-validation-summary="ModelOnly"/>
+    <div>
+        <div>
+
+            <label asp-for="Score">@Model.UserName</label>
+            <label asp-for="Score">Текущее количество баллов</label> -  <b>@Html.DisplayFor(model => model.Score)</b>
+            <br />
+            <input type="number" asp-for="ScoreDev" min="0" />
+            <input type="hidden" asp-for="SearchString" />
+            <input type="hidden" asp-for="PageIndex" />
+            <span asp-validation-for="ScoreDev" />
+        </div>
+        <br/>
+        <div>
+            <input type="submit" class="btn btn-success" name="add" value="Добавить"/>
+            <input type="submit" class="btn btn-warning" name="remove" asp-action="RemoveScore" asp-route-id="@Model.Id" asp-controller="User" value="Убрать" />
+
+        </div>
+
+    </div>
+</form>
+
+
+@section scripts{
+
+    <environment names="Development">
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"
+                asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"
+                asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive"></script>
+    </environment>
+}
+

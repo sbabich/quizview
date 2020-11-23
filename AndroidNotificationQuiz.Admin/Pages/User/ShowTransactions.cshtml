@@ -1,0 +1,49 @@
+﻿@model List<AndroidNotificationQuiz.Admin.ViewModels.UserTransactionViewModel>
+@{
+    ViewBag.Title = "Транзакции пользователя";
+}
+
+
+<p>
+    <h2>Транзакции пользователя</h2>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Id)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Score)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().CreatedAt)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Score)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,78 @@
+﻿@model AndroidNotificationQuiz.Admin.ViewModels.CreateGoodModel
+
+
+<div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <h2>Изменить товар</h2>
+
+            <form asp-action="Edit" asp-controller="Shop" asp-anti-forgery="true" enctype="multipart/form-data">
+                <div class="validation" asp-validation-summary="ModelOnly"/>
+                <div>
+                    <div class="form-group">
+                        <label asp-for="Title">Заголовок для товара</label><br />
+                        <input class="form-control" type="text" asp-for="Title" />
+                        <span asp-validation-for="Title" class="text-danger" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description">Описание товара</label>
+                        <textarea class="form-control" asp-for="Description"></textarea>
+                        <span asp-validation-for="Description" class="text-danger" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Cost">Стоимость товара</label>
+                        <input class="form-control" type="number" min="0" asp-for="Cost"></input>
+                        <span asp-validation-for="Cost" class="text-danger" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RealCost">Стоимость товара в валюте</label>
+                        <input class="form-control" type="number" min="0" asp-for="RealCost"></input>
+                        <span asp-validation-for="RealCost" class="text-danger" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CategoryId">Категория</label>
+                        <select class="form-control" asp-for="CategoryId" asp-items="Model.Categories"></select><br />
+                        <span asp-validation-for="CategoryId" class="text-danger" />
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <label asp-for="IsAutoGetting">Автовыдача</label>
+                            @Html.CheckBoxFor(modelItem => Model.IsAutoGetting)
+                        </div>
+                        <div class="col-md-12">
+                            <select class="form-control" asp-for="PromoCategoryId" asp-items="Model.PromoCategories"></select><br />
+                            <span asp-validation-for="PromoCategoryId" class="text-danger" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="UploadedFile">Изображение</label>
+                        <input class="form-control" asp-for="UploadedFile" style="border: 0px;" />
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="DBPathFile" hidden="true" class="form-control" />
+                    </div>
+                    <input type="submit" class="btn btn-success" value="Изменить товар" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+
+    <environment names="Development">
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"
+                asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"
+                asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive"></script>
+    </environment>
+}

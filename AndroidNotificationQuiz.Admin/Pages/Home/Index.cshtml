@@ -1,0 +1,26 @@
+<div class="list-group">
+    <a asp-action="Index" class="list-group-item" asp-controller="Survey">Опросы</a>
+    <a asp-action="Create" class="list-group-item" asp-controller="Push">Создать пуш</a>
+    <a asp-action="Index" class="list-group-item" asp-controller="User">Пользователи</a>
+    <a asp-action="Index" class="list-group-item" asp-controller="Shop">Магазин</a>
+    <a asp-action="Index" class="list-group-item" asp-controller="Order">Заказанные товары</a>
+    <a asp-action="ViewAuto" class="list-group-item" asp-controller="Order">Товары с автовыдачей</a>
+    <a asp-action="CreateAdmin" class="list-group-item" asp-controller="Home">Создать администратора</a>
+    <a asp-action="Index" class="list-group-item" asp-controller="GeneralSettings">Настройки</a>
+</div>
+
+@section scripts{
+
+    <environment names="Development">
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"
+                asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"
+                asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive"></script>
+    </environment>
+}

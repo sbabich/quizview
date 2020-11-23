@@ -1,0 +1,42 @@
+@model AndroidNotificationQuiz.Admin.ViewModels.CreateAdditionalInfo
+@{
+    ViewBag.Title = "Дополнительная ссылка и видео к опросу";
+}
+
+<h2>Добавить ссылку и видео</h2>
+
+<form asp-action="CreateAdditionalInfo" asp-controller="Survey" asp-route-surveyid="@Model.SurveyId" asp-anti-forgery="true">
+    <div class="validation" asp-validation-summary="ModelOnly"/>
+    <div>
+        <div class="form-group">
+            <label asp-for="LinkToSite">Ссылка на сайт</label><br/>
+            <input class="form-control" type="text" asp-for="LinkToSite"/>
+            <span asp-validation-for="LinkToSite"/>
+        </div>
+        <div class="form-group">
+            <label asp-for="LinkToVideo">Ссылка на видео</label><br/>
+            <input class="form-control" asp-for="LinkToVideo"/>
+            <span asp-validation-for="LinkToVideo"/>
+        </div>
+
+        <input class="btn btn-success" type="submit" value="Сохранить"/>
+        <input class="btn btn-warning" type="submit" asp-action="CreateQuestion" asp-controller="Survey" asp-route-surveyid="@Model.SurveyId" value="Пропустить"/>
+    </div>
+</form>
+
+@section scripts{
+
+    <environment names="Development">
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"
+                asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"
+                asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive"></script>
+    </environment>
+}
+

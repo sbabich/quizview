@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="BootstrapMvc.Bootstrap3" Version="2.7.0" />
+    <PackageReference Include="bootstrap" Version="4.3.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
+    <PackageReference Include="TimeZoneConverter" Version="3.0.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="2.1.1" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="2.0.4" />
+    <PackageReference Include="Serilog.Extensions.Logging.File" Version="1.1.0" />
+    <PackageReference Include="Serilog.Sinks.ColoredConsole" Version="3.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AndroidNotificationQuiz.DataLayer\AndroidNotificationQuiz.DataLayer.csproj" />
+    <ProjectReference Include="..\AndroidNotificationQuiz.DomainLayer\AndroidNotificationQuiz.DomainLayer.csproj" />
+    <ProjectReference Include="..\AndroidNotificationQuiz.Api.Dto\AndroidNotificationQuiz.Api.Dto.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Views\Account\Register.cshtml" />
+    <Content Remove="Pages\Home\Home.cshtml" />
+    <Content Remove="config.json" />
+    <Content Remove="wwwroot\2019\4\4\goods\1cbcb1ea-7c1b-495c-86e1-2cd93a2f39aa.png" />
+    <Content Remove="wwwroot\2019\4\4\goods\5165ced6-fea4-4d5f-9b31-704bc3afbb33.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utils\" />
+    <Folder Include="Pages\Home\" />
+    <Folder Include="Pages\Login\" />
+    <Folder Include="Pages\Survey\" />
+    <Folder Include="Pages\Push\" />
+    <Folder Include="Pages\User\" />
+    <Folder Include="wwwroot\Shop\" />
+    <Folder Include="wwwroot\Shop\goods\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Controllers\LoginController.cs" />
+    <Compile Remove="ViewModels\CreateQuestionaryModel.cs" />
+    <Compile Remove="Pages\Shop\Index.cs" />
+  </ItemGroup>
+</Project>

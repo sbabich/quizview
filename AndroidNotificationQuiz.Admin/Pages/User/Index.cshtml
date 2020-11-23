@@ -1,0 +1,124 @@
+﻿@using AndroidNotificationQuiz.Admin.ViewModels;
+@model IndexViewPageModel<UserModel>
+@{
+    ViewBag.Title = "Пользователи";
+}
+
+<p>
+    <h2>Пользователи</h2>
+</p>
+
+
+<form asp-controller="User" asp-action="Index">
+    <p>
+        Данные пользователя (Ид, Никнейм, Имя): <input type="text" name="SearchString" value="@Model.SerachString">
+        <input type="submit" value="Найти" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.FirstOrDefault().RegistredAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.FirstOrDefault().BanStartedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.FirstOrDefault().BanFineshedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Balance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Items.FirstOrDefault().IsBanned)
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegistredAt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BanStartedAt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BanFineshedAt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Balance)
+                </td>
+                <td>
+                    @Html.CheckBoxFor(modelItem => item.IsBanned, new
+                    {
+                        onclick = "UpdateUser(this)",
+                        data_userid = item.Id
+                    })
+
+                </td>
+
+                <td>
+                    <a asp-action="EditScore" asp-controller="User" asp-route-id="@item.Id" asp-route-pageIndex="@Model.PageViewModel.PageNumber" asp-route-searchString="@Model.SerachString">Начислить или убрать баллы</a>
+                </td>
+                <td>
+                    <a asp-action="Index" asp-controller="Order" asp-route-id="@item.Id">Показать товары</a>
+                </td>
+                <td>
+                    <a asp-action="ShowTransactions" asp-controller="User" asp-route-id="@item.Id" asp-route-pageIndex="@Model.PageViewModel.PageNumber" asp-route-searchString="@Model.SerachString">Показать транзакции</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.PageViewModel.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.PageViewModel.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-pageIndex="@(Model.PageViewModel.PageNumber - 1)"
+   asp-route-searchString="@Model.SerachString"
+   class="btn btn-default @prevDisabled">
+    Назад
+</a>
+<a asp-action="Index"
+   asp-route-pageIndex="@(Model.PageViewModel.PageNumber + 1)"
+   asp-route-searchString="@Model.SerachString"
+   class="btn btn-default @nextDisabled">
+    Вперед
+</a>
+
+<script type="text/javascript">
+    function UpdateUser(elem) {
+    var isDone = $(elem).is(':checked');
+    var cid = $(elem).data('userid');
+    $.ajax({
+        type: 'POST',
+        url: '@Url.Action("ChangeUserBanState", "User")',
+        data: { check: isDone, userId:cid },
+        success: function(res) {
+            console.log(res);
+        }
+    });
+        }
+</script>

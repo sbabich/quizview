@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Properties\launchSettings.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Database\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AndroidNotificationQuiz.DomainLayer\AndroidNotificationQuiz.DomainLayer.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Database\Hash.cs" />
+    <Compile Remove="Migrations\20190122122057_Second.cs" />
+    <Compile Remove="Migrations\20190123134738_default_user.cs" />
+    <Compile Remove="Migrations\20200110151217_Initial.cs" />
+    <Compile Remove="Migrations\20200110151217_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200216124210_add_promo.cs" />
+    <Compile Remove="Migrations\AndroidNotificationQuizContextModelSnapshot.cs" />
+    <Compile Remove="Migrations\20190130130306_all_entities.cs" />
+    <Compile Remove="Migrations\20190130183346_db.cs" />
+    <Compile Remove="GenericRepository.cs" />
+    <Compile Remove="Migrations\20190130192306_db.cs" />
+    <Compile Remove="Migrations\20190205165915_missing_tables.cs" />
+    <Compile Remove="Migrations\20190207231753_missing_key1.cs" />
+    <Compile Remove="Migrations\20190212125929_auth_token_table.cs" />
+    <Compile Remove="Repositories\BaseController.cs" />
+    <Compile Remove="Migrations\20190225225739_change_field.cs" />
+    <Compile Remove="Migrations\20190227080259_temp_data.cs" />
+    <Compile Remove="Migrations\20190303062437_change_category.cs" />
+    <Compile Remove="Migrations\20190303062437_change_category.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\usr\local\share\dotnet\sdk\NuGetFallbackFolder\newtonsoft.json\11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

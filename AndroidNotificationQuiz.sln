@@ -1,0 +1,41 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndroidNotificationQuiz.Api", "AndroidNotificationQuiz.Api\AndroidNotificationQuiz.Api.csproj", "{D9B2A25B-C8C7-46B4-8F83-16429FE369FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndroidNotificationQuiz.Admin", "AndroidNotificationQuiz.Admin\AndroidNotificationQuiz.Admin.csproj", "{8ABCF498-365D-4353-BAF6-E49170C04434}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndroidNotificationQuiz.DomainLayer", "AndroidNotificationQuiz.DomainLayer\AndroidNotificationQuiz.DomainLayer.csproj", "{6964C4D8-74B5-4E85-8433-604E4D61B07C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndroidNotificationQuiz.DataLayer", "AndroidNotificationQuiz.DataLayer\AndroidNotificationQuiz.DataLayer.csproj", "{3A9C9D16-98FA-4CA3-AD7C-FEF6ED6BFAC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndroidNotificationQuiz.Api.Dto", "AndroidNotificationQuiz.Api.Dto\AndroidNotificationQuiz.Api.Dto.csproj", "{E7F5AC6B-30A9-4569-857D-AB56EB941886}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D9B2A25B-C8C7-46B4-8F83-16429FE369FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9B2A25B-C8C7-46B4-8F83-16429FE369FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9B2A25B-C8C7-46B4-8F83-16429FE369FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9B2A25B-C8C7-46B4-8F83-16429FE369FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ABCF498-365D-4353-BAF6-E49170C04434}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ABCF498-365D-4353-BAF6-E49170C04434}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ABCF498-365D-4353-BAF6-E49170C04434}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ABCF498-365D-4353-BAF6-E49170C04434}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6964C4D8-74B5-4E85-8433-604E4D61B07C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6964C4D8-74B5-4E85-8433-604E4D61B07C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6964C4D8-74B5-4E85-8433-604E4D61B07C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6964C4D8-74B5-4E85-8433-604E4D61B07C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A9C9D16-98FA-4CA3-AD7C-FEF6ED6BFAC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A9C9D16-98FA-4CA3-AD7C-FEF6ED6BFAC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A9C9D16-98FA-4CA3-AD7C-FEF6ED6BFAC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A9C9D16-98FA-4CA3-AD7C-FEF6ED6BFAC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7F5AC6B-30A9-4569-857D-AB56EB941886}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7F5AC6B-30A9-4569-857D-AB56EB941886}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7F5AC6B-30A9-4569-857D-AB56EB941886}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7F5AC6B-30A9-4569-857D-AB56EB941886}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

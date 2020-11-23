@@ -1,0 +1,6 @@
+﻿{
+  "ConnectionStrings": {
+    "DataAccessPostgreSqlProvider": "server=localhost;userid=postgres;password=docker;database=quizdb;"
+    //"DataAccessPostgreSqlProvider": "server=localhost;userid=my_user;password=my_pw;database=android_notification;"
+  }
+}
